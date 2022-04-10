@@ -26,5 +26,5 @@ Route::get('registeringphone', 'App\Http\Controllers\registeringController@regis
 
 
 
-
+Route::resource('newsData', 'App\Http\Controllers\HomeController@emailData');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])  ->name('home');

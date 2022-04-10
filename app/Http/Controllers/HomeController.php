@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Models\News;
 
 class HomeController extends Controller
 {
@@ -22,7 +24,14 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
+    { 
+        $newsData =  News::all();
+        return view('home' , compact('newsData'));
+    }
+
+    function emailData()
     {
-        return view('home');
+        $newsData = DB::table('news')->paginate(5);
+        return view('home' ,['newsData'=>$newsData]);
     }
 }
