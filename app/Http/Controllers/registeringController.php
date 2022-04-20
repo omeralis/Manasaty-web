@@ -14,10 +14,20 @@ class registeringController extends Controller
      *
      * @return void
      */
+    // public function __construct()
+    // {
+    //     $this->middleware('auth')->only(['index']);
+    // }
+ 
     public function __construct()
-    {
-        $this->middleware('auth');
-    }
+{
+    // Middleware only applied to these methods
+    $this->middleware('auth', [
+        'only' => [
+            'registeringData' // Could add bunch of more methods too
+        ]
+    ]);
+}
     /**
      * Display a listing of the resource.
      *
@@ -57,7 +67,7 @@ class registeringController extends Controller
             'phone' => 'required'
         ]);
         $registering =  Registering::create($request->all());
-        return Back();
+        return Back()->with('success', 'News created successfully.');
     }
 
     /**

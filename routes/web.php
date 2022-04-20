@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\registeringController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,7 +17,8 @@ use App\Http\Controllers\registeringController;
 // Route::get('/', 'App\Http\Controllers\NewsController@getNews');
 // Route::post('/', 'App\Http\Controllers\NewsController@postNews');
 
-Route::get('/', function () {return view('pages.home');});
+Route::get('/', function () {
+    return view('pages.home');});
 Auth::routes();
 Route::resource('news', 'App\Http\Controllers\NewsController');
 Route::get('email', 'App\Http\Controllers\NewsController@emailData');

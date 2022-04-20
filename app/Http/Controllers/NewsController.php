@@ -14,10 +14,20 @@ class NewsController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+
+    // public function __construct()
+    // {
+    //     $this->middleware('auth')->only(['index']);;
+    // }
+public function __construct()
+{
+    // Middleware only applied to these methods
+    $this->middleware('auth', [
+        'only' => [
+            'index' ,'emailData'
+        ]
+    ]);
+}
     /**
      * Display a listing of the resource.
      *
@@ -59,7 +69,7 @@ class NewsController extends Controller
             'email' => 'required',
         ]);
         $news =   News::create($request->all());
-        return Back();
+        return Back()->with('success', 'News created successfully.');
         // return redirect()->route('new.store')
         //     ->with('success', 'News created successfully.');
     }

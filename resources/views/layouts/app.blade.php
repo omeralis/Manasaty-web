@@ -95,6 +95,7 @@
                         @else
                             <li><a class="nav-link scrollto" href="email">Newsletter-subscribes </a></li>
                             <li><a class="nav-link scrollto" href="registeringphone"> Registration</a></li>
+                            <li><a class="nav-link scrollto" href="register"> Add New Account</a></li>
                             <li class="nav-item">
                                 <!-- <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
